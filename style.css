@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    height: 100%;
+    max-width: 1200px;
+    /* to take the container in center from both side we use 0 auto in margin - we can veiw it by inspect it on chrome and when we click container class we can see container is in centered from both side  */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1 {
+    /* 4 oota deko bela margin: margin-top margin-right margin-bottom margin-left;  */
+    /* 3 oota deko bela margin: margin-top  margin-right&margin-left(same value)  margin-bottom ;  */
+    /* 2 oota deko bela margin: margin-top&margin-bottom(same-value)    margin-right&margin-left(same value);  */
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3 rem;
+}
+
+.gallery {
+
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 13px;
+}
+
+.card {
+    width: 100%;
+    position: relative;
+
+    /* margin-bottom: 20px; */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    /* height nalagaye talako border sharp dekhinxa kinabhni tyo actually imageko corner hunxa soo when we give height 100% then actual mathi hamle border radius diyera rounded gareko corner dekhinxa   */
+    height: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+
+}
+
+.card:hover {
+    transform: scale(1.03);
+    /* boxle/cardle shadow xodiraxa */
+    filter: drop-shadow(0 0 10px);
+    /* yo total kaam 0.3 seconds bhitra hunapryo bhnnalai we use this  */
+    transition: 0.5s;
+}
+
+.card:hover img {
+    filter: grayscale(0%);
+}
+
+.card figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    /* we use opacity zero so that it remains hidden  */
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    /* linear grdient is used on text flowing from bottom to top  */
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5)0%, rgba(244, 27, 95, 0)100%);
+    transition: 0.5s;
+}
+
+.card:hover figcaption {
+    opacity: 1;
+    transform: scale(1.03);
+}
